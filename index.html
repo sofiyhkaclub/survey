@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ecdb">
+<title>Госэкзамен по софииведению · Дело № 25-СФ</title>
+<meta name="description" content="25 вопросов. 4 варианта. 1 правильный. Секретное дело Софии: носки, глиста, парик и малиновый свет.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 112'%3E%3Cpath d='M35 8 h35 q6 0 6 6 v50 q0 12 11 17 l8 4 q10 5 5 16 q-6 12 -19 6 l-30 -15 q-16 -8 -16 -27 V14 q0 -6 6 -6 z' fill='%23b02020'/%3E%3Crect x='35' y='18' width='41' height='7' fill='%23fbf6e9'/%3E%3Crect x='35' y='31' width='41' height='7' fill='%23fbf6e9'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Rubik:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root{
+  --paper:#f4ecdb; --paper2:#eadfc6; --card:#fbf6e9;
+  --ink:#241a10; --ink2:#6f6250; --line:rgba(36,26,16,.25);
+  --red:#d92c2c; --red-deep:#b02020;
+  --blue:#2b46c8; --magenta:#e0257e; --hl:#ffd936;
+  --amber:#f2a516; --green:#1f8f4d; --green-deep:#14713b;
+  --headH:98px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scrollbar-color:var(--red) var(--paper2);scrollbar-width:thin}
+body{
+  font-family:'Rubik',system-ui,sans-serif;color:var(--ink);
+  background:
+    radial-gradient(1100px 560px at 88% -8%, rgba(255,217,54,.28), transparent 60%),
+    radial-gradient(900px 520px at -12% 28%, rgba(224,37,126,.09), transparent 55%),
+    radial-gradient(1000px 700px at 112% 92%, rgba(43,70,200,.08), transparent 60%),
+    var(--paper);
+  min-height:100vh;overflow-x:hidden;
+}
+::selection{background:var(--hl);color:var(--ink)}
+::-webkit-scrollbar{width:12px;height:12px}
+::-webkit-scrollbar-track{background:var(--paper2)}
+::-webkit-scrollbar-thumb{background:var(--red);border:3px solid var(--paper2);border-radius:8px}
+::-webkit-scrollbar-thumb:hover{background:var(--blue)}
+button{font-family:inherit;color:inherit}
+:focus-visible{outline:3px dashed var(--blue);outline-offset:3px;border-radius:6px}
+i.fa-solid,i.fa-regular{line-height:1}
+
+/* ---------- фон ---------- */
+.bg{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.bg::after{content:'';position:absolute;inset:0;opacity:.07;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)'/%3E%3C/svg%3E");}
+.wm{position:absolute;top:46%;left:50%;transform:translate(-50%,-50%) rotate(-16deg);
+  font:700 clamp(3.4rem,12vw,9rem)/1 'Caveat',cursive;color:var(--ink);opacity:.05;white-space:nowrap}
+.stain{position:absolute;border-radius:50%}
+.st1{width:280px;height:280px;top:7%;right:7%;
+  background:radial-gradient(circle,transparent 55%,rgba(146,94,32,.17) 58%,rgba(146,94,32,.05) 61%,transparent 63%)}
+.st2{width:190px;height:190px;bottom:9%;left:5%;
+  background:radial-gradient(circle,transparent 52%,rgba(146,94,32,.14) 55%,rgba(146,94,32,.04) 59%,transparent 61%)}
+.bg-sock{position:absolute;width:90px;height:96px;opacity:.16;animation:drift 14s ease-in-out infinite alternate}
+.s1{top:16%;left:3%;color:var(--magenta)}
+.s2{bottom:10%;right:4%;width:130px;height:140px;color:var(--blue);animation-delay:-6s}
+.s3{top:54%;left:9%;width:66px;height:72px;color:var(--red);animation-delay:-3s}
+@keyframes drift{from{transform:translateY(-12px) rotate(-8deg)}to{transform:translateY(14px) rotate(9deg)}}
+
+/* ---------- шапка ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(244,236,219,.92);
+  backdrop-filter:blur(6px);border-bottom:2.5px solid var(--ink)}
+.topbar{display:flex;align-items:center;gap:12px;padding:10px 16px;max-width:1060px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.badge{flex:none;display:inline-flex;align-items:center;gap:7px;background:var(--red-deep);color:var(--card);
+  border:2px solid var(--ink);border-radius:8px;padding:7px 9px;font:700 13px/1 'IBM Plex Mono',monospace;
+  letter-spacing:.06em;box-shadow:3px 3px 0 var(--ink);transform:rotate(-3deg)}
+.badge i{font-size:12px}
+.brand-t{font:700 14px/1.1 'Unbounded',sans-serif;letter-spacing:.02em;white-space:nowrap}
+.brand-s{font:400 9.5px/1.4 'IBM Plex Mono',monospace;color:var(--ink2);text-transform:uppercase;letter-spacing:.12em}
+.top-right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.hdr-chip{display:none;align-items:center;gap:7px;font:700 11px/1 'IBM Plex Mono',monospace;letter-spacing:.08em;
+  border:2px solid var(--ink);background:var(--hl);padding:9px 11px;border-radius:8px;box-shadow:2px 2px 0 var(--ink);white-space:nowrap}
+.hdr-chip i{font-size:11px}
+.hdr-chip.secret{background:var(--paper2);color:var(--red-deep);border-color:var(--red-deep);box-shadow:2px 2px 0 var(--red-deep)}
+.hdr-chip.score{background:var(--blue);color:var(--card)}
+body[data-screen="intro"] .hdr-chip.secret{display:inline-flex}
+body[data-screen="quiz"] .hdr-chip.prog{display:inline-flex}
+body[data-screen="result"] .hdr-chip.score{display:inline-flex}
+.ticker{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink)}
+.ticker-track{display:flex;align-items:center;width:max-content;animation:tick 38s linear infinite;padding:6px 0}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-track span{font:600 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;padding:0 14px;white-space:nowrap;text-transform:uppercase}
+.ticker-track i{color:var(--hl);font-size:8px}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- каркас ---------- */
+main{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:calc(var(--headH) + 26px) 18px 10px}
+.screen{display:none}
+.screen.active{display:block;animation:screenIn .45s cubic-bezier(.2,.9,.3,1) both}
+@keyframes screenIn{from{opacity:0;transform:translateY(18px) rotate(.4deg)}to{opacity:1;transform:none}}
+.paper-card{position:relative;background:var(--card);border:2.5px solid var(--ink);border-radius:16px;
+  box-shadow:9px 9px 0 rgba(36,26,16,.85);padding:28px}
+.mono-label{font:600 10.5px/1.5 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.16em;color:var(--ink2)}
+.stamp{position:absolute;z-index:3;display:inline-flex;align-items:center;gap:8px;
+  font:700 15px/1 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;
+  padding:11px 15px;border:3px solid currentColor;border-radius:8px;transform:rotate(-10deg);
+  color:var(--red-deep);background:rgba(251,246,233,.75);mix-blend-mode:multiply;pointer-events:none;opacity:.94}
+.stamp::after{content:'';position:absolute;inset:3px;border:1px solid currentColor;border-radius:4px;opacity:.6}
+.stamp.ok{color:var(--green-deep)}
+.stamp.bad{color:var(--red-deep)}
+.stamp.blue{color:var(--blue)}
+.hidden{display:none!important}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;cursor:pointer;
+  font:700 13px/1.2 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;
+  border:2.5px solid var(--ink);background:var(--card);border-radius:11px;padding:15px 18px;
+  box-shadow:4px 4px 0 var(--ink);transition:transform .12s,box-shadow .12s;text-decoration:none}
+.btn i{font-size:14px}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:2px 2px 0 var(--ink)}
+.btn.primary{background:var(--red-deep);color:var(--card)}
+.btn.blue{background:var(--blue);color:var(--card)}
+.btn.ghost{background:transparent;box-shadow:none;border-style:dashed}
+.btn.ghost:hover{background:var(--paper2);transform:none}
+.btn.big{width:100%;font-size:15px;padding:19px}
+.btn.ready{animation:readyPulse 1.7s ease-in-out infinite}
+@keyframes readyPulse{50%{box-shadow:4px 4px 0 var(--ink),0 0 0 6px rgba(242,165,22,.35)}}
+
+/* ---------- интро ---------- */
+.folder{margin-top:40px}
+.folder::before{content:'ДЕЛО № 25-СФ / 2026';position:absolute;top:-33px;left:22px;
+  background:var(--amber);border:2.5px solid var(--ink);border-bottom:none;border-radius:10px 10px 0 0;
+  padding:7px 14px 9px;font:700 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em}
+.folder .stamp{top:-16px;right:16px;transform:rotate(7deg);font-size:12.5px}
+h1{font:900 clamp(1.35rem,6vw,3.05rem)/1.12 'Unbounded',sans-serif;margin:14px 0 6px;overflow-wrap:break-word}
+h1 mark{background:linear-gradient(100deg,transparent 1%,var(--hl) 5% 95%,transparent 99%);
+  color:inherit;padding:0 .12em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.handnote{font:700 1.5rem/1.1 'Caveat',cursive;color:var(--magenta);display:inline-block;transform:rotate(-3deg);margin:2px 0 8px}
+.bio{font:400 11.5px/1.75 'IBM Plex Mono',monospace;color:var(--ink2);border-left:3px solid var(--amber);
+  padding-left:12px;margin:12px 0 16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px}
+.chip{display:inline-flex;align-items:center;gap:6px;font:600 10.5px/1 'IBM Plex Mono',monospace;
+  text-transform:uppercase;letter-spacing:.08em;border:2px solid var(--ink);border-radius:999px;
+  padding:7px 12px;background:var(--paper2)}
+.chip i{font-size:10px}
+.chip:nth-child(odd){transform:rotate(-1.4deg)}
+.chip:nth-child(even){transform:rotate(1.1deg)}
+.chip.c-blue{color:var(--blue);border-color:var(--blue)}
+.chip.c-mag{color:var(--magenta);border-color:var(--magenta)}
+.chip.c-red{color:var(--red-deep);border-color:var(--red-deep)}
+.protocol{list-style:none;counter-reset:p;margin:6px 0 20px}
+.protocol li{counter-increment:p;position:relative;padding:9px 0 9px 42px;font-size:14px;line-height:1.55;
+  border-bottom:1.5px dashed var(--line)}
+.protocol li:last-child{border-bottom:none}
+.protocol li::before{content:counter(p,decimal-leading-zero);position:absolute;left:0;top:9px;
+  font:700 13px/1.4 'IBM Plex Mono',monospace;color:var(--red-deep)}
+.oath{position:relative;display:flex;gap:12px;align-items:flex-start;padding:14px;border:2px dashed var(--ink);
+  border-radius:12px;background:rgba(234,223,198,.55);margin-bottom:18px;cursor:pointer}
+.oath input{position:absolute;opacity:0;width:1px;height:1px}
+.oath .box{flex:none;width:24px;height:24px;border:2.5px solid var(--ink);border-radius:6px;background:var(--card);
+  display:flex;align-items:center;justify-content:center;box-shadow:2px 2px 0 var(--ink);transition:background .15s}
+.oath .box i{font-size:13px;color:var(--red-deep);opacity:0;transform:scale(.4);transition:opacity .15s,transform .15s}
+.oath input:checked ~ .box{background:var(--hl)}
+.oath input:checked ~ .box i{opacity:1;transform:scale(1)}
+.oath input:focus-visible ~ .box{outline:3px dashed var(--blue);outline-offset:3px}
+.oath-t{font-size:14px;font-weight:500;line-height:1.45}
+.oath.shake{animation:shakeX .45s}
+.rec-line{font:400 12px/1.6 'IBM Plex Mono',monospace;color:var(--ink2);margin-top:14px;text-align:center}
+.rec-line b{color:var(--red-deep)}
+.fineprint{font:400 10px/1.7 'IBM Plex Mono',monospace;color:var(--ink2);margin-top:16px;opacity:.85}
+
+/* ---------- квиз ---------- */
+.exam-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.strip{display:flex;gap:3px;margin-bottom:14px}
+.cell{flex:1;min-width:0;aspect-ratio:1;border:1.5px solid var(--ink);border-radius:3px;background:var(--card);
+  display:flex;align-items:center;justify-content:center;transition:background .2s}
+.cell i{font-size:8px}
+.cell.cur{outline:2px solid var(--blue);outline-offset:1px;animation:pulse 1.2s ease-in-out infinite}
+.cell.ok{background:var(--green);border-color:var(--green-deep);color:#fff}
+.cell.bad{background:var(--red);border-color:var(--red-deep);color:#fff}
+@keyframes pulse{50%{outline-color:var(--magenta)}}
+.quiz-row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.score-chip{display:inline-flex;align-items:center;gap:8px;font:700 12px/1 'IBM Plex Mono',monospace;
+  letter-spacing:.1em;border:2px solid var(--ink);background:var(--hl);padding:10px 13px;border-radius:9px;
+  box-shadow:3px 3px 0 var(--ink)}
+.score-chip.pop{animation:pop .35s}
+@keyframes pop{40%{transform:scale(1.18) rotate(-2deg)}}
+.life-btn{font-size:11px;padding:10px 13px}
+.sheet{padding-left:72px}
+.sheet::before{content:'';position:absolute;left:0;top:0;bottom:0;width:52px;pointer-events:none;
+  background:
+   radial-gradient(circle 7px at 26px 64px,var(--paper) 5.5px,rgba(36,26,16,.4) 6.5px,transparent 7.5px) no-repeat,
+   radial-gradient(circle 7px at 26px 50%,var(--paper) 5.5px,rgba(36,26,16,.4) 6.5px,transparent 7.5px) no-repeat,
+   radial-gradient(circle 7px at 26px calc(100% - 64px),var(--paper) 5.5px,rgba(36,26,16,.4) 6.5px,transparent 7.5px) no-repeat}
+.sheet::after{content:'';position:absolute;left:52px;top:14px;bottom:14px;width:2px;background:rgba(217,44,44,.35);pointer-events:none}
+.q-stamp{top:-17px;right:12px;font-size:16px}
+.q-stamp.show{animation:stampIn .45s cubic-bezier(.16,1.6,.3,1) both}
+@keyframes stampIn{from{opacity:0;transform:rotate(-28deg) scale(2.6)}to{opacity:.94;transform:rotate(-10deg) scale(1)}}
+.q-meta{display:flex;gap:16px;flex-wrap:wrap;font:600 11px/1.5 'IBM Plex Mono',monospace;
+  text-transform:uppercase;letter-spacing:.14em;color:var(--ink2);padding-right:120px}
+.q-meta b{color:var(--red-deep)}
+.q-meta i{font-size:10px;margin-right:4px}
+#qText{font:700 clamp(1.12rem,2.8vw,1.5rem)/1.35 'Rubik',sans-serif;margin:12px 0 18px;overflow-wrap:break-word}
+.q-in{animation:qIn .35s ease both}
+@keyframes qIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+.shake{animation:shakeX .45s}
+@keyframes shakeX{20%{transform:translateX(-7px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(3px)}}
+.opts{display:flex;flex-direction:column;gap:11px}
+.opt{position:relative;display:flex;align-items:center;gap:12px;width:100%;text-align:left;cursor:pointer;
+  background:var(--card);border:2px solid var(--ink);border-radius:10px;padding:13px 14px;min-height:54px;
+  box-shadow:3px 3px 0 var(--ink);transition:transform .12s,box-shadow .12s,opacity .2s;overflow:hidden}
+.opt::before{content:'';position:absolute;inset:0;background:linear-gradient(100deg,transparent 0%,rgba(255,217,54,.55) 8% 92%,transparent 100%);
+  transform:scaleX(0);transform-origin:left;transition:transform .22s}
+.opt:hover:not(:disabled)::before{transform:scaleX(1)}
+.opt:hover:not(:disabled){transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+.opt:active:not(:disabled){transform:translate(1px,1px);box-shadow:1px 1px 0 var(--ink)}
+.opt>*{position:relative;z-index:1}
+.opt-letter{flex:none;width:27px;height:27px;display:flex;align-items:center;justify-content:center;
+  border:2px solid var(--ink);border-radius:6px;background:var(--paper2);font:700 13px/1 'IBM Plex Mono',monospace}
+.opt-text{font-size:14px;font-weight:500;line-height:1.4;overflow-wrap:break-word}
+.opt-mark{margin-left:auto;flex:none;min-width:20px;text-align:center;font-size:15px}
+.opt.locked{cursor:default}
+.opt.locked::before{display:none}
+.opt.is-correct{border-color:var(--green-deep);background:#e4f2e4;box-shadow:3px 3px 0 var(--green-deep)}
+.opt.is-correct .opt-letter{background:var(--green);border-color:var(--green-deep);color:#fff}
+.opt.is-correct .opt-mark{color:var(--green-deep)}
+.opt.is-wrong{border-color:var(--red-deep);background:#f9e3de;box-shadow:3px 3px 0 var(--red-deep);animation:shakeX .4s}
+.opt.is-wrong .opt-letter{background:var(--red);border-color:var(--red-deep);color:#fff}
+.opt.is-wrong .opt-mark{color:var(--red-deep)}
+.opt.eliminated{opacity:.35}
+.opt.eliminated .opt-text{text-decoration:line-through}
+.opt.eliminated .opt-mark{color:var(--red-deep)}
+.verdict{display:none}
+.verdict.show{display:block;animation:fadeUp .3s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.note{font:700 1.35rem/1.3 'Caveat',cursive;color:var(--blue);margin-top:18px;padding-top:13px;
+  border-top:2px dashed var(--line)}
+.note i{font-size:15px;margin-right:6px}
+.next-row{display:flex;justify-content:flex-end;margin-top:14px}
+
+/* ---------- результат ---------- */
+.cert{outline:2px dashed var(--red);outline-offset:-12px}
+.cert-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.cert-head .no{font:700 13px/1.4 'IBM Plex Mono',monospace;letter-spacing:.1em}
+.cert-title{font:900 clamp(1.2rem,4.5vw,1.9rem)/1.15 'Unbounded',sans-serif;text-align:center;margin:14px 0 4px}
+.cert-sub{font:400 12.5px/1.6 'Rubik',sans-serif;color:var(--ink2);text-align:center;max-width:420px;margin:0 auto}
+.cert .stamp{top:64px;right:20px;font-size:14px;transform:rotate(-12deg)}
+.score-big{text-align:center;margin:20px 0 4px}
+.score-big span{display:inline-block;font:900 clamp(3rem,15vw,5.4rem)/1 'Unbounded',sans-serif;color:var(--red-deep);
+  background:linear-gradient(100deg,transparent 2%,rgba(255,217,54,.85) 7% 93%,transparent 98%);padding:2px 16px}
+.pct{text-align:center;font:600 11px/1.6 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--ink2)}
+.pct b{color:var(--magenta)}
+.rank{font:800 clamp(1.02rem,3.6vw,1.55rem)/1.25 'Unbounded',sans-serif;color:var(--blue);text-align:center;margin:16px 0 8px;overflow-wrap:break-word}
+.rank-desc{font-size:14px;line-height:1.6;color:var(--ink2);text-align:center;max-width:460px;margin:0 auto}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}
+.stat{border:2px solid var(--ink);border-radius:10px;background:var(--paper2);padding:11px 6px;text-align:center}
+.stat b{display:block;font:700 1.12rem/1.2 'Unbounded',sans-serif}
+.stat i{font:600 9px/1.4 'IBM Plex Mono',monospace;font-style:normal;text-transform:uppercase;letter-spacing:.1em;color:var(--ink2)}
+.stat.g b{color:var(--green-deep)}.stat.r b{color:var(--red-deep)}.stat.b b{color:var(--blue)}.stat.m b{color:var(--magenta)}
+.rec-badge{display:none;margin:18px auto 0;width:max-content;align-items:center;gap:7px;background:var(--amber);
+  border:2px solid var(--ink);border-radius:999px;padding:7px 14px;font:700 11px/1 'IBM Plex Mono',monospace;
+  letter-spacing:.1em;transform:rotate(-2deg);animation:pop .5s}
+.rec-badge.show{display:flex}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.actions .span2{grid-column:1/-1}
+.review{margin-top:20px;padding:20px}
+.review summary{cursor:pointer;font:700 12px/1.4 'IBM Plex Mono',monospace;text-transform:uppercase;
+  letter-spacing:.12em;list-style:none;display:flex;align-items:center;gap:9px}
+.review summary::-webkit-details-marker{display:none}
+.review summary .chev{margin-left:auto;transition:transform .2s;font-size:12px}
+.review[open] summary .chev{transform:rotate(180deg)}
+.rev-filters{display:flex;gap:8px;margin:14px 0 4px;flex-wrap:wrap}
+.fbtn{display:inline-flex;align-items:center;gap:6px;cursor:pointer;font:700 10.5px/1 'IBM Plex Mono',monospace;
+  letter-spacing:.08em;border:2px solid var(--ink);border-radius:999px;background:var(--card);padding:8px 12px;transition:background .15s}
+.fbtn.active{background:var(--ink);color:var(--paper)}
+.rev-list{max-height:340px;overflow-y:auto;padding-right:8px;margin-top:6px}
+.rev-row{padding:12px 2px;border-bottom:1.5px dashed var(--line)}
+.rev-row:last-child{border-bottom:none}
+.rev-q{font:600 13.5px/1.45 'Rubik',sans-serif}
+.rev-a{font:400 12px/1.55 'IBM Plex Mono',monospace;margin-top:6px}
+.rev-a i{margin-right:5px}
+.rev-a.ok{color:var(--green-deep)}
+.rev-a.bad{color:var(--red-deep)}
+.rev-empty{font:700 1.3rem/1.4 'Caveat',cursive;color:var(--blue);padding:16px 2px}
+.love{font:700 1.5rem/1.3 'Caveat',cursive;color:var(--magenta);text-align:center;margin:24px 0 6px;transform:rotate(-1.5deg)}
+.love i{font-size:19px}
+
+footer{position:relative;z-index:1;text-align:center;font:400 10.5px/1.9 'IBM Plex Mono',monospace;
+  color:var(--ink2);padding:28px 18px 44px;max-width:640px;margin:0 auto}
+footer i{margin:0 3px;color:var(--red-deep)}
+
+/* ---------- служебное ---------- */
+#confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:60}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,14px);z-index:80;max-width:92vw;
+  display:flex;align-items:center;gap:9px;background:var(--ink);color:var(--paper);border:2px solid var(--paper);
+  border-radius:10px;padding:13px 17px;font:600 12px/1.5 'IBM Plex Mono',monospace;text-align:left;
+  box-shadow:4px 4px 0 rgba(36,26,16,.4);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.toast.ok{background:var(--green-deep)}
+.toast.bad{background:var(--red-deep)}
+noscript .paper-card{margin-top:40px;font-weight:700;text-align:center}
+
+/* ---------- мобильные ---------- */
+@media (max-width:700px){
+  :root{--headH:88px}
+  .brand-s{display:none}
+  .brand-t{font-size:11.5px}
+  .ticker-track span{font-size:9.5px;padding:0 10px}
+  main{padding-left:14px;padding-right:14px}
+  .paper-card{padding:20px;box-shadow:6px 6px 0 rgba(36,26,16,.85)}
+  .sheet{padding-left:20px}
+  .sheet::before,.sheet::after{display:none}
+  .q-meta{padding-right:104px;font-size:10px;gap:10px}
+  .q-stamp{font-size:13px;padding:9px 11px;top:-14px;right:8px}
+  .cert .stamp{font-size:11px;padding:8px 10px;top:56px;right:10px}
+  .folder .stamp{font-size:10.5px;right:10px}
+  .stats{grid-template-columns:1fr 1fr}
+  .actions{grid-template-columns:1fr}
+  .next-row .btn{width:100%}
+  .s2,.s3{display:none}
+  .opt-text{font-size:13.5px}
+  .cell i{font-size:7px}
+  .hdr-chip{font-size:10px;padding:8px 9px}
+  .hdr-chip.secret span{display:none}
+}
+@media (max-width:380px){
+  .badge{font-size:11px;padding:6px 7px}
+  .chip{font-size:9.5px;padding:6px 9px}
+  .cell{border-width:1px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .ticker-track{animation:none}
+}
+</style>
+</head>
+<body data-screen="intro">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="sock" viewBox="0 0 104 112">
+<path d="M35 8 h35 q6 0 6 6 v50 q0 12 11 17 l8 4 q10 5 5 16 q-6 12 -19 6 l-30 -15 q-16 -8 -16 -27 V14 q0 -6 6 -6 z" fill="currentColor"/>
+<rect x="35" y="18" width="41" height="7" fill="#fbf6e9" opacity=".85"/>
+<rect x="35" y="31" width="41" height="7" fill="#fbf6e9" opacity=".85"/>
+</symbol>
+</defs></svg>
+
+<div class="bg" aria-hidden="true">
+  <div class="stain st1"></div><div class="stain st2"></div>
+  <div class="wm">не показывать Софии</div>
+  <svg class="bg-sock s1"><use href="#sock"/></svg>
+  <svg class="bg-sock s2"><use href="#sock"/></svg>
+  <svg class="bg-sock s3"><use href="#sock"/></svg>
+</div>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<header>
+  <div class="topbar">
+    <div class="brand">
+      <span class="badge"><i class="fa-solid fa-socks"></i>ФСС·25</span>
+      <div>
+        <div class="brand-t">СОФИЕВЕДЕНИЕ</div>
+        <div class="brand-s">госэкзамен · дело № 25-СФ</div>
+      </div>
+    </div>
+    <div class="top-right">
+      <span class="hdr-chip secret"><i class="fa-solid fa-lock"></i><span>СОВ. СЕКРЕТНО</span></span>
+      <span class="hdr-chip prog"><i class="fa-solid fa-list-check"></i><span id="hdrProg">01/25</span></span>
+      <span class="hdr-chip score"><i class="fa-solid fa-stamp"></i><span id="hdrScore">0/25</span></span>
+    </div>
+  </div>
+  <div class="ticker" aria-hidden="true"><div class="ticker-track" id="tickerTrack"></div></div>
+</header>
+
+<main>
+
+  <!-- ЭКРАН 1: ДЕЛО -->
+  <section class="screen active" id="scrIntro">
+    <div class="paper-card folder">
+      <div class="stamp"><i class="fa-solid fa-lock"></i>Сов. секретно</div>
+      <div class="mono-label">Федеральная служба софииведения · аттестационная комиссия</div>
+      <h1>ГОСЭКЗАМЕН ПО <mark>СОФИЕВЕДЕНИЮ</mark></h1>
+      <span class="handnote">Софии не показывать!!!</span>
+      <p class="bio">ОБЪЕКТ: София. Особые приметы: носки не совпадают, парик даёт ложные показания, глиста гуляет на поводке, яблоки в бегах, на вопрос «сколько парней» отвечает «да».</p>
+      <div class="chips">
+        <span class="chip"><i class="fa-solid fa-list-ol"></i>25 вопросов</span>
+        <span class="chip c-blue"><i class="fa-solid fa-shuffle"></i>4 варианта</span>
+        <span class="chip c-red"><i class="fa-solid fa-bullseye"></i>1 верный (наверное)</span>
+        <span class="chip c-mag"><i class="fa-solid fa-clock"></i>≈ 3 минуты</span>
+      </div>
+      <ol class="protocol">
+        <li>На каждый вопрос — четыре ответа. Правильный ровно один. Комиссия сама в шоке.</li>
+        <li>Подсказка «Носок 50/50» — одна на весь экзамен. Носок шепчет, но не гарантирует.</li>
+        <li>Можно с клавиатуры: <b>1–4</b> — ответ, <b>Enter</b> — дальше. Как на настоящем ЕГЭ.</li>
+        <li>София, если ты это читаешь: это художественный вымысел. И вообще, см. вопрос № 25.</li>
+      </ol>
+      <label class="oath" id="oathBox">
+        <input type="checkbox" id="oath">
+        <span class="box"><i class="fa-solid fa-check"></i></span>
+        <span class="oath-t">Подтверждаю, что я <b>не София</b>, не её парик и не её глиста, и обязуюсь не пересказывать ей вопросы № 3, 12 и 20.</span>
+      </label>
+      <button class="btn primary big" id="startBtn"><i class="fa-solid fa-stamp"></i>Начать экзамен</button>
+      <div class="rec-line" id="recLine"></div>
+      <p class="fineprint">Настоящее дело не является клеветой, протоколом или диагнозом. Это художественный вымысел высшей степени глупости. София — легенда. Глиста согласовала.</p>
+    </div>
+  </section>
+
+  <!-- ЭКРАН 2: ЭКЗАМЕН -->
+  <section class="screen" id="scrQuiz">
+    <div class="exam-head">
+      <span class="mono-label">Бланк ответов № 1</span>
+      <span class="mono-label">форма СФ-25 · заполнять шариковой ручкой</span>
+    </div>
+    <div class="strip" id="strip" aria-hidden="true"></div>
+    <div class="quiz-row">
+      <span class="score-chip" id="scoreChip"><i class="fa-solid fa-star"></i>БАЛЛЫ: <span id="scoreVal">00</span></span>
+      <button class="btn life-btn" id="lifeBtn" title="Убрать два неверных ответа. Один раз за экзамен!"><i class="fa-solid fa-socks"></i>Носок 50/50</button>
+    </div>
+    <div class="paper-card sheet" id="qCard">
+      <div class="stamp q-stamp hidden" id="qStamp" aria-hidden="true"></div>
+      <div class="q-meta">
+        <span>Вопрос <b id="qNum">01</b>/25</span>
+        <span><i class="fa-solid fa-stopwatch"></i><span id="qTime">00:00</span></span>
+        <span><i class="fa-solid fa-tag"></i>категория: <b>сложная</b></span>
+      </div>
+      <h2 id="qText"></h2>
+      <div class="opts" id="optWrap" role="group" aria-label="Варианты ответа"></div>
+      <div class="verdict" id="verdict" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- ЭКРАН 3: СПРАВКА -->
+  <section class="screen" id="scrResult">
+    <div class="paper-card cert">
+      <div class="stamp" id="resStamp">АТТЕСТОВАН</div>
+      <div class="cert-head">
+        <span class="no">СПРАВКА № <span id="resNo">СФ-0000</span></span>
+        <span class="mono-label" id="resDate"></span>
+      </div>
+      <div class="cert-title">О СОФИЕЗНАНИИ</div>
+      <p class="cert-sub">Настоящим подтверждается, что предъявитель сего сдал(а) государственный экзамен по софииведению на:</p>
+      <div class="score-big"><span id="resScore">0/25</span></div>
+      <div class="pct">Совпадение с Софией: <b id="resPct">0%</b></div>
+      <div class="rank" id="resRank"></div>
+      <p class="rank-desc" id="resDesc"></p>
+      <div class="stats">
+        <div class="stat g"><b id="stOk">0</b><i>верно</i></div>
+        <div class="stat r"><b id="stBad">0</b><i>ошибки</i></div>
+        <div class="stat b"><b id="stTime">00:00</b><i>время</i></div>
+        <div class="stat m"><b id="stMatch">0%</b><i>совпадение</i></div>
+      </div>
+      <div class="rec-badge" id="recBadge"><i class="fa-solid fa-star"></i>НОВЫЙ РЕКОРД ДЕЛА</div>
+    </div>
+    <div class="actions">
+      <button class="btn primary span2" id="shareBtn"><i class="fa-solid fa-share-nodes"></i>Поделиться результатом</button>
+      <button class="btn blue" id="pngBtn"><i class="fa-solid fa-file-arrow-down"></i>Скачать справку</button>
+      <button class="btn" id="againBtn"><i class="fa-solid fa-rotate-right"></i>Пройти ещё раз</button>
+      <button class="btn ghost span2" id="homeBtn"><i class="fa-solid fa-arrow-left"></i>Вернуться к делу</button>
+    </div>
+    <details class="paper-card review" id="revDetails">
+      <summary><i class="fa-solid fa-list-check"></i>Протокол ответов · разбор полётов<i class="fa-solid fa-chevron-down chev"></i></summary>
+      <div class="rev-filters">
+        <button class="fbtn active" id="revAll"><i class="fa-solid fa-layer-group"></i>Все · 25</button>
+        <button class="fbtn" id="revErr"><i class="fa-solid fa-xmark"></i>Ошибки · 0</button>
+      </div>
+      <div class="rev-list" id="revList"></div>
+    </details>
+    <p class="love">P.S. София всё равно тебя любит. Даже если ты ответил «нет». Особенно тогда. <i class="fa-solid fa-heart"></i></p>
+  </section>
+
+  <noscript><div class="paper-card">Включите JavaScript — София и глиста ждут.</div></noscript>
+</main>
+
+<footer>
+  © 2026 ФСС · Все совпадения с реальной Софией случайны и художественны. Глиста согласовала, парик — нет.<br>
+  Сделано с <i class="fa-solid fa-socks"></i> и <i class="fa-solid fa-heart"></i>. Вопрос № 25 — не шутка.
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+'use strict';
+/* ================= ДАННЫЕ ДЕЛА ================= */
+const DATA=[
+{q:'Какой любимый цвет носков Софии?',a:['Прозрачный: носки как бы есть, но их как бы нет','Леопардовый в полоску','Цвет выключенного телевизора','Она носит не носки, а намёки на носки'],c:1,n:'Левый носок — леопард, правый — зебра. Комиссия признала это не парой, а выставкой.'},
+{q:'Когда в последний раз София ела яблоко?',a:['В четверг. Но это была груша — София её переубедила','14 сентября 2019-го, ровно в 14:03','Никогда: яблоки боятся её сильнее, чем она их','В прошлой жизни. Изнутри'],c:2,n:'Свидетели показали: яблоко само выпрыгнуло из вазы и уехало на такси.'},
+{q:'Когда в последний раз София сидела в тюрьме?',a:['Вчера. Но это был квест за 500 рублей','С 2007 по 2007. Отсидела быстро','Она там не сидела — она там была директором','Это тюрьма сидела в Софии, а не наоборот'],c:1,n:'Отсидела так быстро, что охрана не успела заварить чай. Дело закрыто за отсутствием времени.'},
+{q:'Когда в последний раз Софию избивали в подвале?',a:['Каждую пятницу, по абонементу, со скидкой','Никогда: в подвале её боятся даже пауки','Это был не подвал, а VIP-зона бани','В 2013-м, но по очкам выиграла она'],c:1,n:'Пауки платят ей паутиной за молчание. Подвал официально признан её филиалом.'},
+{q:'Когда София вернулась с СВО?',a:['В мае, с медалями из фольги','Она ездила не на СВО, а на СВОю дачу. Вернулась с кабачками','Ещё не вернулась, шлёт открытки','Дважды. Один раз вернулась чужая бабушка'],c:1,n:'Кабачок весил 11 кг. Соседи до сих пор здороваются с ним первыми.'},
+{q:'Когда в последний раз София употребляла незаконные вещества?',a:['Вчера: сахар без чека','В 2020-м нюхала маркеры. На удачу','Она сама вещество — употребляют её','Нелегально пила воду из чужой бутылки'],c:0,n:'Задержана у чайника с поличным. Сахар вину не признал и растворился.'},
+{q:'Когда София последний раз хуярила водку с утреца?',a:['В 6:00. Но это был кефир. Просто очень злой кефир','Вчера: утро началось в среду, водка — в четверг','Она не хуярит, она дегустирует. С утра — по классике','Никогда: с утреца у неё борщ по расписанию'],c:1,n:'Календарь подал заявление об увольнении. Среда с четвергом больше не разговаривают.'},
+{q:'Когда в последний раз София выгуливала свою глисту?',a:['Сегодня в 7:00. Глиста была на поводке и в шапке','В воскресенье. Правда, глиста выгуливала её','Глиста на самоизоляции с 2020 года','Никогда: у неё собака породы «глиста»'],c:1,n:'Маршрут: диван — холодильник — диван. Глиста довольна, София устала.'},
+{q:'Когда в последний раз София меняла плитку у себя дома?',a:['В 2021-м. Плитка поменяла её — соседи подтверждают','При каждом ремонте. Кладёт на потолок — «так надёжнее»','Никогда: вместо плитки у неё ковёр из носков','Вчера. Поменяла одну плитку на такую же'],c:1,n:'Держится на честном слове и суперклее. Гравитация в курсе, но молчит.'},
+{q:'Когда в последний раз София разбила машину родителей?',a:['В прошлом месяце. Машину не нашли — нашли аплодисменты','Никогда: родители разбивают её заранее, чтобы не расстраивать','В 2018-м. Это была карусель, но родители не оценили','Она не разбивает. Она «придаёт характер»'],c:0,n:'Машину искали три дня. Нашли аплодисменты и записку «спасибо, было красиво».'},
+{q:'Когда София заработала первую копейку?',a:['В 3 года: сдала бутылки, которые сама и выпила','Вчера. Но Копейка — это собака, а не деньги','В 7 лет: продавала воздух в пакетиках. С логотипом','Ещё не заработала: копейка должна ей'],c:2,n:'Первый клиент взял «воздух премиум». Оформил возврат: воздух оказался б/у.'},
+{q:'Когда София перестала скрывать свою лысину?',a:['В 2022-м, на солнечном затмении. Все решили — вторая луна','Никогда: лысина носит парик, чтобы скрывать Софию','В четверг. Блеск засёк Роскосмос','Она не лысая. У неё причёска «минимализм»'],c:0,n:'Затмение длилось 4 минуты. Лысина — 25 лет. Наука разводит руками.'},
+{q:'Когда Софию в последний раз избили за её базар?',a:['Вчера. Но это были аплодисменты. Очень быстрые и по лицу','Никогда: за её базар дают премии','В 2019-м. Базар был на рынке — избили скидкой','Её базар избил сам себя, она просто смотрела'],c:1,n:'Премию «Базар года» вручали трижды. Конкуренты ушли торговаться в другой район.'},
+{q:'Когда в последний раз София лизала чупа-чупс?',a:['Сегодня. Чупа-чупс лизнул в ответ — честный обмен','В 2024-м. Палочку съела первой — «чтобы не мешала»','Никогда: она целует их на расстоянии','Вчера, 17 штук. Язык подал заявление'],c:1,n:'Палочка исчезла за 0,3 секунды. Конфета осталась в шоке и без опоры.'},
+{q:'Во сколько лет София иммигрировала из Индии в Россию?',a:['В 5 лет. Плывла на ковре-самолёте, виза — узоры','В минус 3 года. Приехала раньше, чем родилась — заняла очередь','В 40. Сейчас ей 22, математика вышла из чата','Это не она иммигрировала — это Россия переехала к ней'],c:1,n:'В очереди стояли: она, её парик и будущая глиста. Таможня сдалась первой.'},
+{q:'Почему София носит парик?',a:['Парик носит Софию. Им обоим так удобнее','Чтобы волосы не знали, где она живёт','Это не парик, это шуба для головы','По договору: лысина в аренду, парик в ипотеку'],c:1,n:'Волосы ищут её с 2017 года. Парик даёт ложные показания.'},
+{q:'Когда София сбежала из тюрьмы?',a:['В пятницу. Вышла через парадный вход — ей придержали дверь','В 2008-м. Подкоп вела глиста','Не сбегала: тюрьма ушла сама, не выдержала','Сегодня утром. Вернулась — забыла зарядку'],c:0,n:'Охрана махала вслед и просила не забывать их. Побег признан культурным мероприятием.'},
+{q:'Когда в последний раз София слушала песню «Малиновый свет»?',a:['Вчера, 47 раз подряд. Малина устала первой','В 2019-м, но свет был не малиновый, а долг за ЖКХ','Никогда: она сама и есть малиновый свет','В четверг, задом наперёд. Услышала рецепт борща'],c:0,n:'Соседи выучили припев, глиста — куплет. Ремонт теперь идёт под малиновым светом.'},
+{q:'Когда в последний раз у Софии сгорел дом после неудачной тусовки?',a:['В 2021-м. Сгорел не дом, а танцпол. Буквально','Никогда: тусовки гаснут сами при её появлении','В субботу. Дом сгорел от стыда за её танцы','В прошлом веке. Дом был пряничный — его съели'],c:2,n:'Пожарные приехали, увидели танец «вертолёт» и согласились с домом.'},
+{q:'Сколько парней было у Софии?',a:['47','0. Парни были, но официально не оформлены','Да','Счёт бросили на моменте «здрасьте»'],c:2,n:'Вопрос «сколько», ответ «да». Комиссия пересчитала трижды и снова получила «да».'},
+{q:'Когда в последний раз София делала обряд с чесноком?',a:['В полнолуние. Отгоняла бывших и скидку 5%','Вчера в 3:00. Чеснок отгонял саму Софию','В 1312 году. Семейная традиция','Каждый вторник. Но чеснок против'],c:1,n:'Обряд удался: чеснок ушёл сам. Квартира пахнет свободой и борщом.'},
+{q:'Когда София сувала руки в розетку?',a:['В детстве. Розетка с тех пор на пенсии','Вчера: проверяла, есть ли свет. Свет был. Софии — много','Никогда: это розетка суёт пальцы в Софию','В 2016-м. С тех пор заряжается по USB'],c:3,n:'Зарядка 5V/2A, 40 минут до 100%. Характер зарядке не поддаётся.'},
+{q:'Когда к Софии в последний раз приходили с обыском в 6 утра?',a:['В прошлом месяце','В 6 утра по её часовому поясу это был полдень','Никогда: она сама приходит к ним с обыском','В четверг. Обыскали глисту — она всё съела'],c:0,n:'Протокол: пришли в прошлом месяце, искали соль — нашли борщ и остались на завтрак. Изъято две ложки, возвращено ноль.'},
+{q:'В каком году София выкупила акции Apple?',a:['В 1998-м. Все. Логотип — это огрызок после неё','В 2031-м. Из будущего, по предзаказу','В 2007-м. Купила яблоко на рынке — «тоже Apple»','Никогда: это Apple выкупила акции Софии'],c:0,n:'Комиссия сверилась с вопросом № 2: яблоки её боятся, но акции — уважают.'},
+{q:'Вы любите Софию?',a:['Нет (подумайте ещё раз)','Да','Я и есть София','Спросите у глисты'],c:1,n:'Единственный вопрос, где комиссия не шутила.',nw:'Ошибка в последнем вопросе?! Комиссия в шоке, София расстроена, глиста осуждает.'}
+];
+const LETTERS='АБВГ';
+const TICKER=['Носки Софии снова разных цветов','Глиста замечена на самовыгуле','Парик снова даёт ложные показания','Яблоки покинули город в полном составе','Apple ждёт одобрения Софии','«Малиновый свет» играет 48-й раз подряд','Чеснок подал в бега','На вопрос «сколько» получен ответ «да»','Розетка вышла на пенсию','Кабачок 11 кг избран старостой дачи'];
+const RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+const SOCK_D='M35 8 h35 q6 0 6 6 v50 q0 12 11 17 l8 4 q10 5 5 16 q-6 12 -19 6 l-30 -15 q-16 -8 -16 -27 V14 q0 -6 6 -6 z';
+const SOCK=(typeof Path2D!=='undefined')?new Path2D(SOCK_D):null;
+const ICO={ok:'<i class="fa-solid fa-check"></i>',bad:'<i class="fa-solid fa-xmark"></i>'};
+
+/* ================= УТИЛИТЫ ================= */
+const el=id=>document.getElementById(id);
+const pad=n=>String(n).padStart(2,'0');
+const fmt=s=>pad(Math.floor(s/60))+':'+pad(s%60);
+function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function lsSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function getBest(){const v=parseInt(lsGet('sf_best'),10);return isNaN(v)?null:v}
+let toastT=0;
+function toast(msg,tone){
+  const t=el('toast');
+  const ic=tone==='ok'?'fa-circle-check':(tone==='bad'?'fa-circle-xmark':'fa-circle-info');
+  t.innerHTML='<i class="fa-solid '+ic+'"></i><span>'+msg+'</span>';
+  t.className='toast show '+(tone||'');
+  clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),2600);
+}
+function vib(p){if(navigator.vibrate){try{navigator.vibrate(p)}catch(e){}}}
+function drawSock(x,col,scale){
+  if(!SOCK)return;
+  x.save();x.scale(scale,scale);x.translate(-52,-58);
+  x.fillStyle=col;x.fill(SOCK);
+  x.fillStyle='#fbf6e9';x.fillRect(35,18,41,7);x.fillRect(35,31,41,7);
+  x.restore();
+}
+
+/* ================= КОНФЕТТИ (векторное, без эмодзи) ================= */
+const CF={
+  c:el('confetti'),x:null,ps:[],raf:0,w:0,h:0,
+  resize(){const dpr=Math.min(window.devicePixelRatio||1,2);this.w=innerWidth;this.h=innerHeight;
+    this.c.width=this.w*dpr;this.c.height=this.h*dpr;this.x=this.c.getContext('2d');this.x.setTransform(dpr,0,0,dpr,0,0)},
+  start(){
+    this.stop();if(RM)return;this.resize();
+    const cols=['#d92c2c','#2b46c8','#e0257e','#ffd936','#1f8f4d','#f2a516'];
+    for(let i=0;i<160;i++)this.ps.push({x:Math.random()*this.w,y:-30-Math.random()*this.h*.5,
+      vx:(Math.random()-.5)*2.4,vy:2+Math.random()*3.4,s:6+Math.random()*8,r:Math.random()*Math.PI,
+      vr:(Math.random()-.5)*.22,col:cols[i%6],sock:i%23===0,shape:i%3});
+    const step=()=>{
+      this.x.clearRect(0,0,this.w,this.h);let alive=false;
+      for(const p of this.ps){
+        p.x+=p.vx+Math.sin(p.y*.01)*.6;p.y+=p.vy;p.vy+=.045;p.r+=p.vr;
+        if(p.y<this.h+40)alive=true;
+        this.x.save();this.x.translate(p.x,p.y);this.x.rotate(p.r);
+        if(p.sock&&SOCK){drawSock(this.x,p.col,p.s/40)}
+        else{this.x.fillStyle=p.col;
+          if(p.shape===0)this.x.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);
+          else{this.x.beginPath();this.x.arc(0,0,p.s/3,0,7);this.x.fill()}}
+        this.x.restore();
+      }
+      if(alive)this.raf=requestAnimationFrame(step);else this.stop();
+    };
+    this.raf=requestAnimationFrame(step);
+  },
+  stop(){cancelAnimationFrame(this.raf);this.raf=0;this.ps=[];if(this.x)this.x.clearRect(0,0,this.w,this.h)}
+};
+addEventListener('resize',()=>{if(CF.raf)CF.resize()});
+
+/* ================= СОСТОЯНИЕ ================= */
+const S={i:0,score:0,answers:[],answered:false,lifeUsed:false,t0:0,timerId:null,elapsed:0,finished:false,rank:null,certNo:'СФ-0000'};
+let revFilter='all';
+const optWrap=el('optWrap'),verdict=el('verdict'),qCard=el('qCard'),qStamp=el('qStamp'),strip=el('strip');
+
+function show(name){
+  document.body.dataset.screen=name;
+  ['intro','quiz','result'].forEach(k=>el('scr'+k[0].toUpperCase()+k.slice(1)).classList.toggle('active',k===name));
+  window.scrollTo(0,0);
+}
+function refreshRec(){
+  const b=getBest();
+  el('recLine').innerHTML=b===null?'Рекордов пока нет. Дело чистое, как совесть глисты.':'Ваш рекорд по делу: <b>'+b+'/25</b> · побьёте?';
+}
+
+/* ================= КВИЗ ================= */
+function startQuiz(){
+  CF.stop();if(S.timerId){clearInterval(S.timerId);S.timerId=null}
+  S.i=0;S.score=0;S.answers=new Array(25).fill(null);S.answered=false;S.lifeUsed=false;S.finished=false;S.elapsed=0;
+  strip.innerHTML=DATA.map(()=>'<span class="cell"></span>').join('');
+  el('scoreVal').textContent='00';
+  show('quiz');renderQ();
+  S.t0=Date.now();S.timerId=setInterval(tick,1000);tick();
+}
+function tick(){const t=el('qTime');if(t&&S.t0)t.textContent=fmt(Math.floor((Date.now()-S.t0)/1000))}
+function renderQ(){
+  const q=DATA[S.i];S.answered=false;
+  el('qNum').textContent=pad(S.i+1);
+  el('hdrProg').textContent=pad(S.i+1)+'/25';
+  el('qText').textContent=q.q;
+  optWrap.innerHTML=q.a.map((t,i)=>'<button class="opt" data-i="'+i+'"><span class="opt-letter">'+LETTERS[i]+'</span><span class="opt-text">'+t+'</span><span class="opt-mark"></span></button>').join('');
+  verdict.classList.remove('show');verdict.innerHTML='';
+  qStamp.className='stamp q-stamp hidden';qStamp.innerHTML='';
+  qCard.classList.remove('q-in','shake');void qCard.offsetWidth;qCard.classList.add('q-in');
+  strip.querySelectorAll('.cell').forEach(c=>c.classList.remove('cur'));
+  const cur=strip.children[S.i];if(cur)cur.classList.add('cur');
+  const lb=el('lifeBtn');lb.disabled=S.lifeUsed;
+  lb.innerHTML=S.lifeUsed?'<i class="fa-solid fa-battery-empty"></i>Носок устал':'<i class="fa-solid fa-socks"></i>Носок 50/50';
+  tick();
+}
+function pick(i){
+  if(S.answered||S.finished)return;
+  const q=DATA[S.i],ok=i===q.c;
+  S.answered=true;S.answers[S.i]={p:i,ok:ok};
+  const opts=optWrap.querySelectorAll('.opt');
+  opts.forEach((b,bi)=>{
+    b.disabled=true;b.classList.add('locked');
+    if(bi===q.c){b.classList.add('is-correct');b.querySelector('.opt-mark').innerHTML=ICO.ok}
+  });
+  if(ok)S.score++;
+  else{opts[i].classList.add('is-wrong');opts[i].querySelector('.opt-mark').innerHTML=ICO.bad}
+  qStamp.innerHTML=(ok?ICO.ok:ICO.bad)+'<span>'+(ok?'ВЕРНО':'БРЕД')+'</span>';
+  qStamp.className='stamp q-stamp show '+(ok?'ok':'bad');
+  const note=ok?q.n:(q.nw||q.n);
+  verdict.innerHTML='<div class="note"><i class="fa-solid fa-pen-nib"></i>Комиссия: '+note+'</div>'+
+    '<div class="next-row"><button id="nextBtn" class="btn primary">'+(S.i===24?'К результату <i class="fa-solid fa-star"></i>':'Дальше <i class="fa-solid fa-arrow-right"></i>')+'</button></div>';
+  verdict.classList.add('show');
+  el('nextBtn').addEventListener('click',next);
+  el('nextBtn').focus({preventScroll:true});
+  const cell=strip.children[S.i];
+  if(cell){cell.classList.remove('cur');cell.classList.add(ok?'ok':'bad');cell.innerHTML=ok?ICO.ok:ICO.bad}
+  el('scoreVal').textContent=pad(S.score);
+  const sc=el('scoreChip');sc.classList.remove('pop');void sc.offsetWidth;sc.classList.add('pop');
+  el('lifeBtn').disabled=true;
+  if(!ok){qCard.classList.remove('shake');void qCard.offsetWidth;qCard.classList.add('shake')}
+  vib(ok?[12]:[40,30,40]);
+}
+function next(){
+  if(!S.answered)return;
+  if(S.i<24){S.i++;renderQ()}else finish();
+}
+function lifeline(){
+  if(S.lifeUsed||S.answered)return;
+  S.lifeUsed=true;
+  const wrongs=[0,1,2,3].filter(x=>x!==DATA[S.i].c).sort(()=>Math.random()-.5).slice(0,2);
+  wrongs.forEach(i=>{
+    const b=optWrap.querySelector('[data-i="'+i+'"]');
+    if(b){b.classList.add('eliminated');b.disabled=true;b.querySelector('.opt-mark').innerHTML=ICO.bad}
+  });
+  const lb=el('lifeBtn');lb.disabled=true;lb.innerHTML='<i class="fa-solid fa-battery-empty"></i>Носок устал';
+  toast('София шепнула: «вот это точно нет»');
+}
+
+/* ================= РЕЗУЛЬТАТ ================= */
+function rankFor(s){
+  if(s===25)return{t:'ВЫ И ЕСТЬ СОФИЯ',d:'100% совпадение. Обычный человек столько знать не может. Здравствуйте, София! Парик можете снять, мы всё поняли.',st:'ЭТО СОФИЯ',cl:'blue'};
+  if(s>=20)return{t:'СОФИЕЛОГ ВЫСШЕЙ КАТЕГОРИИ',d:'Вы опасны: вы знаете о Софии больше, чем её собственный парик. Допуск к чесноку открыт.',st:'АТТЕСТОВАН',cl:'ok'};
+  if(s>=15)return{t:'ШТАТНЫЙ ДРУГ СОФИИ',d:'Допуск к глисте получен. Носки можете не стирать — вам и так всё простят.',st:'АТТЕСТОВАН',cl:'ok'};
+  if(s>=10)return{t:'ЗНАКОМЫЙ ЗНАКОМОГО',d:'Что-то вы знаете, но чеснок вас пока не пускает. Пересдайте после борща.',st:'НА ПЕРЕСДАЧУ',cl:'bad'};
+  if(s>=5)return{t:'СОСЕД ПО ПОДЪЕЗДУ',d:'Здороваетесь, но обыск в 6 утра проспали. Слабовато для соседа.',st:'НА ПЕРЕСДАЧУ',cl:'bad'};
+  return{t:'СЛУЧАЙНЫЙ ПРОХОЖИЙ',d:'София вас не знает. Глиста тоже. Начните с носков и возвращайтесь.',st:'НА ПЕРЕСДАЧУ',cl:'bad'};
+}
+function finish(){
+  if(S.timerId){clearInterval(S.timerId);S.timerId=null}
+  S.elapsed=Math.floor((Date.now()-S.t0)/1000);
+  S.finished=true;S.rank=rankFor(S.score);
+  S.certNo='СФ-'+(1000+Math.floor(Math.random()*9000));
+  el('resNo').textContent=S.certNo;
+  el('resDate').textContent='выдана '+new Date().toLocaleDateString('ru-RU');
+  el('resScore').textContent=S.score+'/25';
+  el('resPct').textContent=(S.score*4)+'%';
+  el('resRank').textContent='«'+S.rank.t+'»';
+  el('resDesc').textContent=S.rank.d;
+  const st=el('resStamp');
+  st.innerHTML=(S.rank.cl==='ok'?ICO.ok:(S.rank.cl==='blue'?'<i class="fa-solid fa-user-secret"></i>':ICO.bad))+'<span>'+S.rank.st+'</span>';
+  st.className='stamp '+S.rank.cl;
+  el('stOk').textContent=S.score;
+  el('stBad').textContent=25-S.score;
+  el('stTime').textContent=fmt(S.elapsed);
+  el('stMatch').textContent=(S.score*4)+'%';
+  el('hdrScore').textContent=S.score+'/25';
+  const prev=getBest(),record=prev===null||S.score>prev;
+  if(record)lsSet('sf_best',String(S.score));
+  el('recBadge').classList.toggle('show',record&&S.score>0);
+  revFilter='all';el('revDetails').open=false;renderReview();
+  show('result');
+  if(S.score>=15)CF.start();
+  vib([20,40,20]);
+}
+function renderReview(){
+  const err=S.answers.filter(a=>a&&!a.ok).length;
+  el('revAll').innerHTML='<i class="fa-solid fa-layer-group"></i>Все · 25';
+  el('revErr').innerHTML='<i class="fa-solid fa-xmark"></i>Ошибки · '+err;
+  el('revAll').classList.toggle('active',revFilter==='all');
+  el('revErr').classList.toggle('active',revFilter==='err');
+  const rows=[];
+  DATA.forEach((d,i)=>{
+    const a=S.answers[i];if(!a)return;
+    if(revFilter==='err'&&a.ok)return;
+    rows.push('<div class="rev-row"><div class="rev-q">'+(i+1)+'. '+d.q+'</div>'+
+      (a.ok?'<div class="rev-a ok">'+ICO.ok+'Вы: '+d.a[a.p]+'</div>'
+           :'<div class="rev-a bad">'+ICO.bad+'Вы: '+d.a[a.p]+'</div><div class="rev-a ok">'+ICO.ok+'Верно: '+d.a[d.c]+'</div>')+'</div>');
+  });
+  el('revList').innerHTML=rows.length?rows.join(''):'<div class="rev-empty">Ошибок нет. Вы подозрительно хорошо знаете Софию. Признавайтесь, вы парик?</div>';
+}
+function toIntro(){CF.stop();if(S.timerId){clearInterval(S.timerId);S.timerId=null}refreshRec();show('intro')}
+
+/* ================= ПОДЕЛИТЬСЯ ================= */
+function shareText(){
+  return 'ГОСЭКЗАМЕН ПО СОФИЕВЕДЕНИЮ\nРезультат: '+S.score+'/25 — «'+S.rank.t+'»\nСовпадение с Софией: '+(S.score*4)+'% · время '+fmt(S.elapsed)+'\nСлабо пройти лучше?';
+}
+function copyFallback(text){
+  try{
+    const ta=document.createElement('textarea');ta.value=text;
+    ta.style.cssText='position:fixed;opacity:0;left:-999px';
+    document.body.appendChild(ta);ta.select();
+    const ok=document.execCommand('copy');ta.remove();return ok;
+  }catch(e){return false}
+}
+async function doShare(){
+  const url=location.protocol.indexOf('http')===0?location.href.split('#')[0]:'';
+  const text=shareText();
+  if(navigator.share){
+    try{await navigator.share(Object.assign({title:'Госэкзамен по софииведению',text:text},url?{url:url}:{}));return}
+    catch(e){if(e&&e.name==='AbortError')return}
+  }
+  const full=text+(url?'\n'+url:'');
+  let ok=false;
+  if(navigator.clipboard&&navigator.clipboard.writeText){try{await navigator.clipboard.writeText(full);ok=true}catch(e){}}
+  if(!ok)ok=copyFallback(full);
+  toast(ok?'Скопировано! Кидай в чат Софии':'Не вышло скопировать — перепишите вручную, как в 1998-м',ok?'ok':'bad');
+}
+
+/* ================= СПРАВКА PNG (векторная графика) ================= */
+function wrapText(ctx,text,maxW){
+  const words=text.split(' '),lines=[];let line='';
+  for(const w of words){
+    const t=line?line+' '+w:w;
+    if(ctx.measureText(t).width>maxW&&line){lines.push(line);line=w}else line=t;
+  }
+  if(line)lines.push(line);return lines;
+}
+async function downloadCert(){
+  if(!S.finished)return;
+  const btn=el('pngBtn');btn.disabled=true;const old=btn.innerHTML;
+  btn.innerHTML='<i class="fa-solid fa-print"></i>Печатаем…';
+  try{
+    if(document.fonts&&document.fonts.ready)await Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,1500))]);
+    const W=1080,H=1440,c=document.createElement('canvas');c.width=W;c.height=H;
+    const x=c.getContext('2d');
+    x.fillStyle='#f4ecdb';x.fillRect(0,0,W,H);
+    x.fillStyle='rgba(36,26,16,.05)';
+    for(let i=0;i<600;i++)x.fillRect(Math.random()*W,Math.random()*H,2,2);
+    x.strokeStyle='#241a10';x.lineWidth=6;x.strokeRect(46,46,W-92,H-92);
+    x.strokeStyle='#d92c2c';x.lineWidth=3;x.setLineDash([16,11]);x.strokeRect(72,72,W-144,H-144);x.setLineDash([]);
+    x.textAlign='center';x.fillStyle='#6f6250';
+    x.font='600 26px "IBM Plex Mono", monospace';
+    x.fillText('ФЕДЕРАЛЬНАЯ СЛУЖБА СОФИЕВЕДЕНИЯ',W/2,140);
+    x.fillStyle='#241a10';x.font='900 74px Unbounded, Arial';
+    x.fillText('СПРАВКА',W/2,235);
+    x.font='600 30px "IBM Plex Mono", monospace';x.fillStyle='#b02020';
+    x.fillText('№ '+S.certNo+' · О СОФИЕЗНАНИИ',W/2,290);
+    x.strokeStyle='rgba(36,26,16,.3)';x.lineWidth=2;x.setLineDash([10,8]);
+    x.beginPath();x.moveTo(140,330);x.lineTo(W-140,330);x.stroke();x.setLineDash([]);
+    x.fillStyle='#6f6250';x.font='400 30px Rubik, Arial';
+    x.fillText('Настоящим подтверждается, что предъявитель сего',W/2,395);
+    x.fillText('сдал(а) госэкзамен по софииведению на:',W/2,440);
+    x.fillStyle='rgba(255,217,54,.8)';x.fillRect(W/2-280,530,560,150);
+    x.fillStyle='#b02020';x.font='900 170px Unbounded, Arial';
+    x.fillText(S.score+'/25',W/2,660);
+    x.fillStyle='#6f6250';x.font='600 28px "IBM Plex Mono", monospace';
+    x.fillText('СОВПАДЕНИЕ С СОФИЕЙ: '+(S.score*4)+'%',W/2,730);
+    x.fillStyle='#2b46c8';x.font='700 46px Unbounded, Arial';
+    const rl=wrapText(x,'«'+S.rank.t+'»',840);let ry=810;
+    rl.forEach(l=>{x.fillText(l,W/2,ry);ry+=58});
+    x.fillStyle='#6f6250';x.font='400 28px Rubik, Arial';
+    const dl=wrapText(x,S.rank.d,820);let dy=ry+16;
+    dl.forEach(l=>{x.fillText(l,W/2,dy);dy+=40});
+    const sc=S.rank.cl==='ok'?'#14713b':(S.rank.cl==='blue'?'#2b46c8':'#b02020');
+    x.save();x.translate(830,1130);x.rotate(-.16);
+    x.strokeStyle=sc;x.lineWidth=8;x.strokeRect(-180,-56,360,112);
+    x.lineWidth=2;x.strokeRect(-166,-42,332,84);
+    x.fillStyle=sc;x.font='700 36px "IBM Plex Mono", monospace';x.fillText(S.rank.st,0,13);
+    x.restore();
+    x.save();x.translate(190,1130);drawSock(x,'#e0257e',1.5);x.restore();
+    x.save();x.translate(640,1330);x.rotate(.05);
+    x.fillStyle='#2b46c8';x.font='700 44px Caveat, cursive';x.textAlign='left';
+    x.fillText('проверено: глиста',0,0);
+    const tw=x.measureText('проверено: глиста').width;
+    x.strokeStyle='#2b46c8';x.lineWidth=5;x.lineCap='round';
+    x.beginPath();x.moveTo(tw+16,-12);x.lineTo(tw+28,0);x.lineTo(tw+52,-30);x.stroke();
+    x.restore();
+    x.textAlign='center';x.fillStyle='#241a10';x.font='600 28px "IBM Plex Mono", monospace';
+    x.fillText('ВЕРНО: '+S.score+'   ·   ОШИБКИ: '+(25-S.score)+'   ·   ВРЕМЯ: '+fmt(S.elapsed),W/2,1245);
+    x.fillStyle='#6f6250';x.font='400 24px "IBM Plex Mono", monospace';
+    x.fillText('выдана '+new Date().toLocaleDateString('ru-RU')+' · действительна до: никогда',W/2,1385);
+    const a=document.createElement('a');
+    a.href=c.toDataURL('image/png');a.download='spravka-'+S.certNo+'-'+S.score+'-25.png';
+    document.body.appendChild(a);a.click();a.remove();
+    toast('Справка сохранена. Предъявлять глисте','ok');
+  }catch(e){toast('Принтер зажевал справку. Попробуйте ещё раз','bad')}
+  btn.disabled=false;btn.innerHTML=old;
+}
+
+/* ================= СОБЫТИЯ ================= */
+el('startBtn').addEventListener('click',()=>{
+  if(!el('oath').checked){
+    const ob=el('oathBox');ob.classList.remove('shake');void ob.offsetWidth;ob.classList.add('shake');
+    toast('Сначала подтвердите, что вы не София!','bad');return;
+  }
+  startQuiz();
+});
+el('oath').addEventListener('change',e=>el('startBtn').classList.toggle('ready',e.target.checked));
+optWrap.addEventListener('click',e=>{
+  const b=e.target.closest('.opt');
+  if(!b||b.disabled||S.answered)return;
+  pick(+b.dataset.i);
+});
+el('lifeBtn').addEventListener('click',lifeline);
+el('shareBtn').addEventListener('click',doShare);
+el('pngBtn').addEventListener('click',downloadCert);
+el('againBtn').addEventListener('click',startQuiz);
+el('homeBtn').addEventListener('click',toIntro);
+el('revAll').addEventListener('click',()=>{revFilter='all';renderReview()});
+el('revErr').addEventListener('click',()=>{revFilter='err';renderReview()});
+document.addEventListener('keydown',e=>{
+  if(document.body.dataset.screen!=='quiz'||e.ctrlKey||e.metaKey||e.altKey)return;
+  if(e.key>='1'&&e.key<='4'&&!S.answered){
+    const b=optWrap.querySelector('[data-i="'+(+e.key-1)+'"]');
+    if(b&&!b.disabled)pick(+e.key-1);
+  }else if((e.key==='Enter'||e.key==='ArrowRight')&&S.answered){e.preventDefault();next()}
+});
+
+/* ================= ИНИЦИАЛИЗАЦИЯ ================= */
+(function init(){
+  const half=TICKER.map(t=>'<span>'+t+'</span><i class="fa-solid fa-asterisk"></i>').join('');
+  el('tickerTrack').innerHTML=half+half;
+  refreshRec();show('intro');
+})();
+</script>
+</body>
+</html>
